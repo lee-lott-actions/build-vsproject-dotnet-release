@@ -47,13 +47,14 @@ runs:
   steps:
     - name: Get Next Semantic Version Number
       id: new-tag
-      uses: lee-lott-actions/get-next-semantic-version-number@v1
+      uses: lee-lott-actions/get-next-semantic-version-number@v2
       with:
         prerelease: ${{ inputs.prerelease }}
         prerelease-identifier: ${{ inputs.prerelease-suffix }}
         owner: ${{ github.repository_owner }}
         repo-name: ${{ github.event.repository.name }}
         branch: ${{ github.base_ref }}
+        use-leading-zeros: true
         token: ${{ inputs.token }}
 
     - name: Set Build Status
